@@ -1,4 +1,5 @@
+#include "numtest.hpp"
 
-int main(){
-  return 0;
+int main() {
+  harmosci_test();
 }
