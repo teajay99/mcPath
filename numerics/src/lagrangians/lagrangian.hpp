@@ -24,32 +24,6 @@ public:
 
   __host__ __device__ ~lagrangian() {}
 
-  // Due to Cuda it's not allowed for this function to be purely virtual
-  // __host__ __device__ T eval(T *x, T *v) { return 0; }
-  //
-  // __host__ __device__ T evalPath(T *path, int loc) {
-  //   T *x = (T *)malloc(sizeof(T) * targetDim);
-  //   T *v = (T *)malloc(sizeof(T) * targetDim);
-  //
-  //   for (int i = 0; i < targetDim; i++) {
-  //     x[i] = path[loc + (i * rootDof)];
-  //     v[i] = (path[((loc + rootBasis[i]) % rootDof) + (i * rootDof)] -
-  //             path[loc + (i * rootDof)]) /
-  //            latSpacing;
-  //   }
-  //   T out = this->eval(x, v);
-  //   free(x);
-  //   free(v);
-  //   return out;
-  // }
-
-  // __host__ __device__ T evalActionChange(T *path, int loc) {
-  //   T out = this->evalPath(path, loc);
-  //   for (int k = 0; k < rootDim; k++) {
-  //     out += this->evalPath(path, (loc + rootDof - rootBasis[k]) % rootDof);
-  //   }
-  //   return out;
-  // }
 
   // Getter
   __host__ __device__ int getLatSites() { return latSites; }
